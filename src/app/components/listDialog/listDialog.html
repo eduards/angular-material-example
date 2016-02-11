@@ -1,0 +1,22 @@
+<md-dialog class="bh-list-dialog" aria-label="Mango (Fruit)" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1 ng-bind="listDialog.title"></h1>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-list>
+        <md-list-item class="md-clickable" role="listitem" tabindex="-1" ng-repeat="item in listDialog.items track by $index">
+          <md-button type="button" ng-click="listDialog.selectListItem(item)" aria-label="Choose list item">
+            <span ng-show="item.label" ng-bind="item.label"></span>
+            <span ng-hide="item.label" ng-bind="item"></span>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </md-dialog-content>
+    <md-dialog-actions>
+      <md-button ng-click="listDialog.closeDialog()">Cancel</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

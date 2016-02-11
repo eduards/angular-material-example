@@ -1,0 +1,80 @@
+<div class="core-consultation">
+  <div layout="column" class="layout-max">
+    <h1>Book a Consultation</h1>
+    <md-card md-whiteframe="3">
+      <md-card-content>
+        <h2>Book this consultation for</h2>
+        <div layout="row" layout-xs="column" layout-align="center center">
+          <div layout="row" layout-xs="column" ng-repeat="profile in consultation.profiles">
+            <div class="icon-check" ng-class="{'active':consultation.isProfileSelected(profile)}" ng-click="consultation.selectProfile(profile)">
+              <div class="image" style="background-image: url('{{profile.imageUrl}}')">
+                <md-icon class="material-icons step">check_circle</md-icon>
+              </div>
+              <label ng-bind="profile | profileName"></label>
+            </div>
+            <span hide-xs ng-if="!$last" class="divider">or</span>
+            <span show-gt-xs ng-if="!$last" class="divider">&nbsp;</span>
+          </div>
+        </div>
+      </md-card-content>
+      <md-divider></md-divider>
+      <md-card-content>
+        <h2>Select a healthcare professional</h2>
+        <div layout="row" layout-xs="column" layout-align="center center">
+          <div layout="row" layout-xs="column" ng-repeat="profession in consultation.professions">
+            <div class="icon-check" ng-class="{'active':consultation.isProfessionSelected(profession)}" ng-click="consultation.selectProfession(profession, $event)">
+              <div class="image" style="background-image: url('{{profession.imageUrl}}')">
+                <md-icon class="material-icons step">check_circle</md-icon>
+              </div>
+              <label>
+                <div class="label" ng-bind="profession.name"></div>
+                <div class="sub-label">
+                  <span if="consultation.selectedProfessionAlternative" ng-bind="consultation.selectedProfessionAlternative"></span>
+                  <span if="!consultation.selectedProfessionAlternative">&nbsp;</span>
+                </div>
+              </label>
+            </div>
+            <span hide-xs ng-if="!$last" class="divider">or</span>
+            <span show-gt-xs ng-if="!$last" class="divider">&nbsp;</span>
+          </div>
+        </div>
+      </md-card-content>
+      <md-divider></md-divider>
+      <md-card-content ng-show="consultation.selectedProfession">
+        <h2>Select the doctor</h2>
+        <md-button ng-disabled="consultation.getAvailableProfessionals().length == 0" class="consultation-booking-select-btn md-raised md-primary" ng-click="consultation.selectProfessional($event)" aria-label="Select doctor">
+          <div ng-if="consultation.getAvailableProfessionals().length == 0">No doctors available</div>
+          <div ng-if="consultation.getAvailableProfessionals().length == 0">Try another professional</div>
+          <div ng-if="consultation.getAvailableProfessionals().length > 0" ng-bind="consultation.selectedProfessional.name"></div>
+          <div ng-if="consultation.getAvailableProfessionals().length > 0" ng-bind="consultation.selectedProfessional.type"></div>
+        </md-button>
+      </md-card-content>
+      <md-divider ng-show="consultation.selectedProfession"></md-divider>
+      <md-card-content ng-show="consultation.selectedProfessional">
+        <h2>Next available appointment</h2>
+        <md-button class="consultation-booking-select-btn md-raised md-primary" ng-click="consultation.selectAppointment($event)" aria-label="Select appointment">
+          <div ng-bind="consultation.selectedAppointment | date:consultation.dateFormat"></div>
+          <div>Click to Select a different time</div>
+        </md-button>
+      </md-card-content>
+      <md-divider ng-show="consultation.selectedProfessional"></md-divider>
+      <md-card-content class="consultation-booking-attachments">
+        <div>Get the best from your consultation by uploading a photo or a note.</div>
+        <md-button ng-click="consultation.addPhoto()">
+          <md-icon aria-label="photo" class="material-icons step">add_a_photo</md-icon>
+          <span>Attach a Photo</span>
+        </md-button>
+        <md-button ng-click="consultation.addNote()">
+          <md-icon aria-label="photo" class="material-icons step">event_note</md-icon>
+          <span>Add a Note</span>
+        </md-button>
+      </md-card-content>
+      <md-divider></md-divider>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button ng-disabled="!consultation.isObligatoryBookingDataSet()" ng-click="consultation.bookConsultation()" class="consultation-booking-submit-btn md-raised md-primary" aria-label="Submit booking request">
+          Book Consultation
+        </md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>

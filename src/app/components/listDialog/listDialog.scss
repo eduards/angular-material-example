@@ -1,0 +1,36 @@
+.bh-list-dialog {
+  md-toolbar {
+    background: $bh-blue;
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      margin: auto;
+    }
+  }
+  md-list-item {
+    &,
+    .md-button {
+      width: 100%;
+      min-height: 26px;
+      line-height: 26px;
+      margin: 0px;
+      text-align: left;
+      .md-button {
+        padding: 0px 30px;
+      }
+    }
+  }
+  md-dialog-actions {
+    border-top: 1px solid $bh-grey-lighter;
+    padding: 10px;
+    margin-top: 20px;
+    .md-button {
+      background-color: $bh-grey-light !important;
+      color: white;
+      width: 100%;
+      margin: 10px;
+      padding: 5px;
+    }
+  }
+}

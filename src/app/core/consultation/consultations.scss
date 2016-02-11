@@ -1,0 +1,109 @@
+.core-consultation {
+  .consultation-booking-attachments {
+    font-size: 18px;
+    button {
+      margin-top: 25px;
+      color: $bh-grey;
+    }
+  }
+  md-card {
+    text-align: center;
+    h2 {
+      text-transform: uppercase;
+      color: $bh-grey-light;
+      font-size: 18px;
+      font-weight: 100;
+      margin: 0px 0px 20px;
+    }
+  }
+  .md-button {
+    font-size: 18px;
+    text-transform: none;
+    md-icon {
+      font-size: 14px;
+      background-color: $bh-grey;
+      color: white;
+      border-radius: 50%;
+      padding: 6px;
+      margin-right: 6px;
+    }
+    &>div:nth-of-type(2) {
+      font-size: 14px;
+      margin-top: -1em;
+    }
+  }
+  .md-button[disabled] {
+    color: white !important;
+  }
+  .consultation-booking-select-btn,
+  .consultation-booking-submit-btn {
+    width: 280px;
+    max-width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .consultation-booking-select-btn {
+    background-color: $bh-green !important;
+  }
+  .consultation-booking-submit-btn {
+    margin: 20px 0px !important;
+    background-color: $bh-blue !important;
+    &[disabled] {
+      background-color: $bh-blue-light !important;
+    }
+  }
+  .icon-check {
+    cursor: pointer;
+    width: 120px;
+    &:focus {
+      outline: none;
+      border: 0;
+    }
+    .image {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid darkgrey;
+      margin: auto;
+      md-icon {
+        display: none;
+      }
+    }
+    label {
+      margin-top: 5px;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .sub-label {
+      visibility: hidden;
+    }
+    &.active {
+      .image {
+        border: 2px solid #6dbebd;
+        md-icon {
+          display: block;
+          color: #6cd100;
+          position: absolute;
+          top: -8px;
+          left: -8px;
+        }
+      }
+      .sub-label {
+        visibility: visible;
+        font-size: 0.9em;
+        color: darkgrey;
+      }
+    }
+    &+span {
+      height: 38px;
+      margin: 15px 5px;
+      color: darkgrey;
+      font-size: 18px;
+    }
+  }
+}

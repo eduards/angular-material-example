@@ -1,0 +1,22 @@
+.core-home {
+  md-card {
+    text-align: left;
+    line-height: 1.4em;
+    h2 {
+      color: $bh-purple;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 2.4em;
+      margin: 0px;
+    }
+    .md-button,
+    .md-button.md-primary {
+      font-size: 16px;
+      padding: 6px 18px;
+      background-color: $bh-green !important;
+    }
+  }
+  md-card-actions {
+    padding: 10px;
+  }
+}

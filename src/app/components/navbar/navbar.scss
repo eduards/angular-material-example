@@ -1,0 +1,28 @@
+.bh-navbar {
+  background-color: $bh-purple;
+  height: 50px;
+  md-toolbar.md-default-theme {
+    background-color: black;
+  }
+  md-toolbar.md-default-theme:not(.md-menu-toolbar),
+  md-toolbar:not(.md-menu-toolbar) {
+    background-color: transparent;
+  }
+  .bh-navbar-logo {
+    height: 48px;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+  md-tabs.noTabPanel md-tabs-wrapper {
+    display: none !important;
+  }
+  md-tabs .md-tab {
+    color: white !important;
+    font-size: 16px;
+    text-transform: none;
+  }
+  md-tabs md-ink-bar {
+    color: white !important;
+    background-color: white;
+  }
+}
